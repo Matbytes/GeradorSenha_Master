@@ -5,6 +5,15 @@ import numpy as np
 print("Gerador de Senha v2\n")
 
 numCarac = input("Numero de caracteres da senha: ")
+numCarac = int(numCarac)
+ 
+while numCarac < 4:
+    print("Erro: A senha deve ter no minimo 4 caracteres")
+    numCarac = input("Numero de caracteres da senha: ")
+    numCarac = int(numCarac)
+    if numCarac >= 4:
+        break
+
 querNum = input("Deseja ter numeros? S/N: ")
 querEspe = input("Deseja ter simbolos? S/N: " )
 querLetrasMais = input("Deseja ter letras maisculas? S/N: ")
@@ -15,7 +24,6 @@ letrasmi = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q",
 numeros = ["0","1","2","3","4","5","6","7","8","9"]
 caracEspeciais = ["!","@","#","$","&","*"]
 senha = []
-
 
 x = np.random.randint(0, 26)
 y = np.random.randint(0,10)
@@ -29,6 +37,11 @@ senha.append(letrasMa[x])
 senha.append(letrasmi[x])
 senha.append(numeros[y])
 senha.append(caracEspeciais[z])
+
+'''
+for i in range(0,numCarac):
+    senha.extend(Listas[w])
+'''
 
 match querNum:
     case "S":
