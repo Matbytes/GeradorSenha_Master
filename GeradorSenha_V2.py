@@ -25,23 +25,27 @@ numeros = ["0","1","2","3","4","5","6","7","8","9"]
 caracEspeciais = ["!","@","#","$","&","*"]
 senha = []
 
+f = 4
 x = np.random.randint(0, 26)
+b = np.random.randint(0,26)
 y = np.random.randint(0,10)
 z = np.random.randint(0,6)
-w = np.random.randint(0,4)
+w = np.random.randint(0,f)
 
-Listas = [letrasMa[x], letrasmi[x], numeros[y], caracEspeciais[z]]
+Listas = [letrasMa[x], letrasmi[b], numeros[y], caracEspeciais[z]]
 
 
 senha.append(letrasMa[x])
-senha.append(letrasmi[x])
+senha.append(letrasmi[b])
 senha.append(numeros[y])
 senha.append(caracEspeciais[z])
 
-'''
-for i in range(0,numCarac):
-    senha.extend(Listas[w])
-'''
+if numCarac > 4:
+    numCarac -= 4
+    for i in range(0,numCarac):
+        senha.append(Listas[np.random.randint(0,4)])
+else:
+    pass
 
 match querNum:
     case "S":
@@ -51,10 +55,14 @@ match querNum:
     case "N":
         senha.remove(numeros[y])
         Listas.remove(numeros[y])
+        f -= 1
+        Listas.append(Listas[w])
         senha.append(Listas[w])
     case "n":
         senha.remove(numeros[y])
         Listas.remove(numeros[y])
+        f -= 1
+        Listas.append(Listas[w])
         senha.append(Listas[w])
 
 match querEspe:
@@ -65,10 +73,14 @@ match querEspe:
     case "N":
         senha.remove(caracEspeciais[z])
         Listas.remove(caracEspeciais[z])
+        f -= 1
+        Listas.append(Listas[w])
         senha.append(Listas[w])
     case "n":
         senha.remove(caracEspeciais[z])
         Listas.remove(caracEspeciais[z])
+        f -= 1
+        Listas.append(Listas[w])
         senha.append(Listas[w])
 
 match querLetrasMais:
@@ -79,10 +91,14 @@ match querLetrasMais:
     case "N":
         senha.remove(letrasMa[x])
         Listas.remove(letrasMa[x])
+        f -= 1
+        Listas.append(Listas[w])
         senha.append(Listas[w])
     case "n":
         senha.remove(letrasMa[x])
         Listas.remove(letrasMa[x])
+        f -= 1
+        Listas.append(Listas[w])
         senha.append(Listas[w])
 
 match querLetrasMin:
@@ -91,15 +107,19 @@ match querLetrasMin:
     case "s":
         pass
     case "N":
-        senha.remove(letrasmi[x])
-        Listas.remove(letrasmi[x])
+        senha.remove(letrasmi[b])
+        Listas.remove(letrasmi[b])
+        f -= 1
+        Listas.append(Listas[w])
         senha.append(Listas[w])
     case "n":
-        senha.remove(letrasmi[x])
-        Listas.remove(letrasmi[x])
+        senha.remove(letrasmi[b])
+        Listas.remove(letrasmi[b])
+        f -= 1
+        Listas.append(Listas[w])
         senha.append(Listas[w])
 
-if querEspe and querNum and querLetrasMais and querLetrasMin == "N":
+if f == 0:
     print("Ai c me quebra")
 
 senha.sort()
