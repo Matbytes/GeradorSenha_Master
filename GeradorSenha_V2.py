@@ -1,6 +1,5 @@
-#Gerador de Senha V1
-
-import numpy as np
+#Gerador de Senha V2
+import random
 
 print("Gerador de Senha v2\n")
 
@@ -23,14 +22,16 @@ letrasMa = ["A","B","C","D","E","F","G", "H","I","J","K","L","M","N","O","P","Q"
 letrasmi = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
 numeros = ["0","1","2","3","4","5","6","7","8","9"]
 caracEspeciais = ["!","@","#","$","&","*"]
+universo = ["A","B","C","D","E","F","G", "H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","0","1","2","3","4","5","6","7","8","9","!","@","#","$","&","*"]
 senha = []
 
+
 f = 4
-x = np.random.randint(0, 26)
-b = np.random.randint(0,26)
-y = np.random.randint(0,10)
-z = np.random.randint(0,6)
-w = np.random.randint(0,f)
+x = random.randint(0, 25)
+b = random.randint(0,25)
+y = random.randint(0,9)
+z = random.randint(0,5)
+w = random.randint(0,f)
 
 Listas = [letrasMa[x], letrasmi[b], numeros[y], caracEspeciais[z]]
 
@@ -43,7 +44,13 @@ senha.append(caracEspeciais[z])
 if numCarac > 4:
     numCarac -= 4
     for i in range(0,numCarac):
-        senha.append(Listas[np.random.randint(0,4)])
+        t = random.choice(universo)
+        if t in senha:
+            t = random.choice(universo)
+            senha.append(t)
+        else:
+            senha.append(t)
+    random.shuffle(senha)
 else:
     pass
 
@@ -122,5 +129,5 @@ match querLetrasMin:
 if f == 0:
     print("Ai c me quebra")
 
-senha.sort()
+random.shuffle(senha)
 print(senha)

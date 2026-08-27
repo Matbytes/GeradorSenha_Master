@@ -1,6 +1,6 @@
 #Gerador de Senha V1
 
-import numpy as np
+import random
 
 print("Pressione ENTER para gerar uma senha:\n")
 input()
@@ -11,9 +11,9 @@ numeros = ["0","1","2","3","4","5","6","7","8","9"]
 caracEspeciais = ["!","@","#","$","&","*"]
 senha = []
 
-r = np.random.randint(0, 26)
-l = np.random.randint(0,10)
-f = np.random.randint(0,6)
+r = random.randint(0, 26)
+l = random.randint(0,10)
+f = random.randint(0,6)
 
 senha.append(letrasMa[r])
 senha.append(letrasmi[r])
