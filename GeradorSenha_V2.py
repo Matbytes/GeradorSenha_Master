@@ -130,4 +130,6 @@ if f == 0:
     print("Ai c me quebra")
 
 random.shuffle(senha)
-print(senha)
+
+Senha_Final = "".join(senha)
+print(Senha_Final)
