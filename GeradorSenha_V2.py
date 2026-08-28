@@ -3,6 +3,8 @@ import random
 
 print("Gerador de Senha v2\n")
 
+
+nomeUsu = input("Nome de usuario: ")
 numCarac = input("Numero de caracteres da senha: ")
 numCarac = int(numCarac)
  
@@ -132,4 +134,9 @@ if f == 0:
 random.shuffle(senha)
 
 Senha_Final = "".join(senha)
-print(Senha_Final)
+print("Nome de Usuario: ",nomeUsu)
+print("Senha: ",Senha_Final)
+
+with open('./SaHjk.txt', 'a') as conta:
+    conta.write(f"Usuario: {nomeUsu}\n")
+    conta.write(f"Senha: {Senha_Final}\n")
