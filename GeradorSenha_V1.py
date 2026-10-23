@@ -19,6 +19,7 @@ senha.append(letrasMa[r])
 senha.append(letrasmi[r])
 senha.append(numeros[l])
 senha.append(caracEspeciais[f])
+
 senha.sort()
 
 print(senha)
