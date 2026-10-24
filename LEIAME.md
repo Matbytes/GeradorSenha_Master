@@ -12,7 +12,6 @@ Instruções:
 
 -Ative o ambiente virtual:
 
-    -Entre na pasta do ambiente virtual que você criou:
 
     Windows:
 
