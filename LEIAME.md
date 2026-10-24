@@ -35,6 +35,9 @@ Após isso, só executar o projeto
 
 OBS:. Podera ver alguns bugs por conta de que sou novato e é meu primeiro projeto sério. Caso encontre um, não hesite em deixar nos comentarios
 
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 Password generator integrated with Excel
 
 Project made by Matheus Oliveira da Silva
